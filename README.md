@@ -1,8 +1,19 @@
-# Kubernetes
+# Verifi Kubernetes
 
 [![GoDoc Widget]][GoDoc] [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/569/badge)](https://bestpractices.coreinfrastructure.org/projects/569)
 
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Verifi-Blue2D-w_Gray.png" width="100">
 <img src="https://github.com/kubernetes/kubernetes/raw/master/logo/logo.png" width="100">
+
+----
+Verifi has forked Kubernetes in order to apply a change to the `kubectl` command 
+that allows it to communicate through SSH tunnels to the API server (in our case, 
+Rancher).  The [related issue] has been filed with Kubernetes.  At time of writing, it had not been fixed, although there is an open pull request, which was the basis for our custom change.  
+
+The branch that contains the fix is based off of the `v1.15.12` tag.  This version matches the version of Kubernetes that Verifi uses on the server.  Refer 
+to the [Kubernetes Version Skew Policy] for more information about versions.  If 
+we upgrade the server version, we'll need to apply this patch to the 
+corresponding `kubectl` version again.
 
 ----
 
@@ -65,6 +76,8 @@ and work your way through the process that we've outlined.
 That said, if you have questions, reach out to us
 [one way or another][communication].
 
+[related issue]: https://github.com/kubernetes/kubernetes/issues/58065
+[Kubernetes Version Skew Policy]: https://kubernetes.io/docs/setup/release/version-skew-policy/
 [announcement]: https://cncf.io/news/announcement/2015/07/new-cloud-native-computing-foundation-drive-alignment-among-container
 [Borg]: https://research.google.com/pubs/pub43438.html
 [CNCF]: https://www.cncf.io/about
